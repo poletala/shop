@@ -14,27 +14,31 @@ export const PromotionItem = ({ header, image }: PromotionProps) => {
   return (
     <Stack
       sx={{
-        flexDirection: 'row',
+        flexDirection: { xs: 'column', sm: 'row' },
         alignItems: 'center',
         justifyContent: 'center',
-        gap: '20px'
+        gap: { xs: 2, sm: 3 },
+        maxWidth: 1000,
+        mx: 'auto',
+        width: '100%',
       }}
     >
       <Box
         component="img"
         src={publicAsset(image)}
         alt={header}
+        sx={{ width: { xs: '100%', sm: 220, md: 300 }, aspectRatio: { xs: '4 / 3', sm: '2 / 3' }, objectFit: 'cover', flexShrink: 0 }}
       />
       <Box
         sx={{
-          width: '40%',
+          width: { xs: '100%', sm: '55%' },
           gap: '10px'
         }}
       >
-        <Typography variant='body1' sx={{ fontSize: '1.5rem', fontWeight: '500', marginLeft: '-20px'}}>
+        <Typography variant='body1' sx={{ fontSize: { xs: '1.25rem', sm: '1.5rem' }, fontWeight: 500, ml: { sm: -2.5 }, mb: 1 }}>
           {header}
         </Typography>
-        <Typography variant='body2' component="div">
+        <Typography variant='body2' component="div" sx={{ lineHeight: 1.6 }}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, nam nisi harum unde pariatur repellat quia ad, molestiae non temporibus quidem! Impedit porro perspiciatis molestias maiores vitae inventore minima quod? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis sit inventore quia ipsum dolorum ut ex officia modi nostrum error aspernatur rem, voluptatibus delectus, explicabo vero? Maxime dolorem quas aperiam.
           <IconButton
             component={NavLink}
@@ -47,8 +51,8 @@ export const PromotionItem = ({ header, image }: PromotionProps) => {
               display: 'inline-flex',
               verticalAlign: 'middle',
               ml: 1,
-              width: 28,
-              height: 28,
+              width: 36,
+              height: 36,
               border: '1px solid',
               borderColor: 'divider',
               borderRadius: 0,

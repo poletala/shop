@@ -41,7 +41,7 @@ export const Brands = () => {
   }
 
   return (
-    <Stack spacing={1} sx={{ padding: '20px', width: '100%', alignItems: 'center' }}>
+    <Stack spacing={1} sx={{ p: { xs: 2, md: 4 }, width: '100%', alignItems: 'center' }}>
 
       <Stack
         sx={{
@@ -58,12 +58,13 @@ export const Brands = () => {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           sx={{
-            width: 220,
+            width: { xs: '100%', sm: 280 },
+            maxWidth: 420,
             flexShrink: 0,
             fontSize: '1.2rem',
-            alignSelf: 'end',
+            alignSelf: { xs: 'stretch', sm: 'flex-end' },
             borderBottom: '1px solid',
-            marginRight: '120px',
+            mr: { sm: 4, md: 15 },
             borderColor: 'divider',
             pb: 0.5,
             transition: 'border-color 0.2s ease',
@@ -93,9 +94,9 @@ export const Brands = () => {
               disableRipple
               onClick={() => handleLetterClick(letter)}
               sx={{
-                minWidth: 32,
-                width: 32,
-                height: 32,
+                minWidth: 44,
+                width: 44,
+                height: 44,
                 p: 0,
                 borderRadius: 0,
                 color: activeLetter === letter ? '#7FCE00' : 'text.primary',
@@ -116,7 +117,7 @@ export const Brands = () => {
       <Stack
         sx={{
           minHeight: '300px',
-          width: 'fit-content',
+          width: { xs: '100%', sm: 'fit-content' },
           // alignItems: 'center'
         }}
       >
@@ -134,6 +135,8 @@ export const Brands = () => {
               fontSize: '1.2rem',
               justifyContent: 'flex-start',
               px: 2,
+              minHeight: 44,
+              overflowWrap: 'anywhere',
               '&&:hover': {
                 color: 'grey.500',
                 backgroundColor: 'transparent',

@@ -39,7 +39,11 @@ export const ProductPage = () => {
       }}
     >
       {/* Левая колонка — миниатюры */}
-      <Stack spacing={1.5} sx={{ order: { xs: 2, md: 1 } }}>
+      <Stack
+        direction={{ xs: 'row', md: 'column' }}
+        spacing={1.5}
+        sx={{ order: { xs: 2, md: 1 }, overflowX: { xs: 'auto', md: 'visible' }, pb: { xs: 0.5, md: 0 } }}
+      >
         {product.gallery.map((img, index) => (
           <Box
             key={img}
@@ -48,7 +52,8 @@ export const ProductPage = () => {
             alt={`${product.brand} ${index + 1}`}
             onClick={() => setActiveImage(index)}
             sx={{
-              width: '100%',
+              width: { xs: 72, sm: 88, md: '100%' },
+              flexShrink: 0,
               aspectRatio: '1 / 1',
               objectFit: 'cover',
               cursor: 'pointer',
@@ -77,6 +82,7 @@ export const ProductPage = () => {
 
       {/* Правая колонка — текст + кнопки */}
       <Stack
+        spacing={2}
         sx={{
           order: { xs: 3, md: 3 },
           position: { md: 'sticky' },
@@ -88,15 +94,16 @@ export const ProductPage = () => {
         <Typography
           variant="h2"
           sx={{
-            position: 'absolute',
-            left: { xs: '-10%', md: '-30%' },
-            top: '-35%',
+            position: { xs: 'static', md: 'absolute' },
+            left: { md: '-30%' },
+            top: { md: '-35%' },
             fontWeight: 700,
             color: 'text.primary',
             lineHeight: 1,
             zIndex: 2,
             pointerEvents: 'none',
-            whiteSpace: 'nowrap',
+            whiteSpace: { md: 'nowrap' },
+            overflowWrap: 'anywhere',
           }}
         >
           {product.brand}
@@ -110,7 +117,7 @@ export const ProductPage = () => {
           {product.price} ₽
         </Typography>
 
-        <Stack direction="row" spacing={2} sx={{ alignItems: 'center', mt: 2 }}>
+        <Stack direction="row" spacing={1.5} sx={{ alignItems: 'center', mt: 1 }}>
           <ActionButton
             startIcon={<ShoppingBagOutlined />}
             onClick={() => isInCart ? navigate('/cart') : add(product.id)}
@@ -123,8 +130,9 @@ export const ProductPage = () => {
             onClick={() => toggle(product.id)}
             disableRipple
             sx={{
-              width: 56,
-              height: 56,
+              width: 52,
+              height: 52,
+              flexShrink: 0,
               border: '1px solid',
               borderColor: 'divider',
               borderRadius: 0,

@@ -6,13 +6,14 @@ export const Promotions = () => {
   return (
     <Stack
       sx={{
-        padding: '30px',
-        gap: '40px'
+        p: { xs: 2, md: 4 },
+        gap: { xs: 4, md: 5 },
       }}
     >
       {PromotionList.map(p => {
         return (
           <PromotionItem
+            key={p.image}
             image={p.image}
             header={p.header}
             description={p.description}

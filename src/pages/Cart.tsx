@@ -31,7 +31,7 @@ export const Cart = () => {
   }
 
   return (
-    <Box sx={{ maxWidth: 1180, mx: 'auto', px: { xs: 2, md: 5 }, py: { xs: 3, md: 6 } }}>
+    <Box sx={{ maxWidth: 1180, mx: 'auto', px: { xs: 1.5, sm: 2, md: 5 }, py: { xs: 3, md: 6 } }}>
       <Typography variant="h3" sx={{ fontWeight: 700, mb: { xs: 3, md: 5 } }}>
         корзина <Typography component="span" variant="inherit" color="text.secondary">({amount})</Typography>
       </Typography>
@@ -39,30 +39,30 @@ export const Cart = () => {
       <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', md: 'minmax(0, 1fr) 330px' }, gap: { xs: 4, md: 8 }, alignItems: 'start' }}>
         <Stack divider={<Divider flexItem />}>
           {cartProducts.map(({ product, qty }) => (
-            <Stack key={product.id} direction="row" spacing={{ xs: 1.5, sm: 3 }} sx={{ py: 2.5 }}>
-              <Box component={NavLink} to={`/product/${product.id}`} sx={{ width: { xs: 94, sm: 140 }, flexShrink: 0, aspectRatio: '1', display: 'block' }}>
+            <Stack key={product.id} direction="row" spacing={{ xs: 1.25, sm: 3 }} sx={{ py: 2.5, minWidth: 0 }}>
+              <Box component={NavLink} to={`/product/${product.id}`} sx={{ width: { xs: 80, sm: 140 }, flexShrink: 0, aspectRatio: '1', display: 'block' }}>
                 <Box component="img" src={publicAsset(product.image)} alt={product.brand} sx={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
               </Box>
 
               <Stack sx={{ flex: 1, minWidth: 0 }}>
                 <Typography sx={{ textTransform: 'uppercase', fontSize: '0.7rem', letterSpacing: '0.1em', color: 'text.secondary' }}>{product.category}</Typography>
-                <Typography component={NavLink} to={`/product/${product.id}`} sx={{ color: 'text.primary', textDecoration: 'none', fontSize: { xs: '1rem', sm: '1.25rem' }, fontWeight: 700, mt: 0.25 }}>{product.brand}</Typography>
+                <Typography component={NavLink} to={`/product/${product.id}`} sx={{ color: 'text.primary', textDecoration: 'none', fontSize: { xs: '0.95rem', sm: '1.25rem' }, fontWeight: 700, mt: 0.25, overflowWrap: 'anywhere' }}>{product.brand}</Typography>
                 <Typography sx={{ mt: 1, fontWeight: 600 }}>{formatPrice(product.price)}</Typography>
 
-                <Stack direction="row" sx={{ mt: 'auto', pt: 2, alignItems: 'center', justifyContent: 'space-between' }}>
+                <Stack direction={{ xs: 'column', sm: 'row' }} sx={{ mt: 'auto', pt: 2, gap: { xs: 1, sm: 0 }, alignItems: { xs: 'flex-start', sm: 'center' }, justifyContent: 'space-between' }}>
                   <Stack direction="row" sx={{ alignItems: 'center', border: '1px solid', borderColor: 'divider' }}>
-                    <IconButton aria-label="Уменьшить количество" onClick={() => decrease(product.id)} size="small" disableRipple><Remove fontSize="small" /></IconButton>
+                    <IconButton aria-label="Уменьшить количество" onClick={() => decrease(product.id)} size="small" disableRipple sx={{ width: 40, height: 40 }}><Remove fontSize="small" /></IconButton>
                     <Typography sx={{ minWidth: 34, textAlign: 'center' }}>{qty}</Typography>
-                    <IconButton aria-label="Увеличить количество" onClick={() => product.id.startsWith('gift-card-') ? addGiftCard(product.price) : add(product.id)} size="small" disableRipple><Add fontSize="small" /></IconButton>
+                    <IconButton aria-label="Увеличить количество" onClick={() => product.id.startsWith('gift-card-') ? addGiftCard(product.price) : add(product.id)} size="small" disableRipple sx={{ width: 40, height: 40 }}><Add fontSize="small" /></IconButton>
                   </Stack>
-                  <IconButton aria-label="Удалить товар" onClick={() => remove(product.id)} disableRipple sx={{ color: 'text.secondary', '&:hover': { color: 'text.primary', backgroundColor: 'transparent' } }}><DeleteOutlined /></IconButton>
+                  <IconButton aria-label="Удалить товар" onClick={() => remove(product.id)} disableRipple sx={{ width: 44, height: 44, color: 'text.secondary', '&:hover': { color: 'text.primary', backgroundColor: 'transparent' } }}><DeleteOutlined /></IconButton>
                 </Stack>
               </Stack>
             </Stack>
           ))}
         </Stack>
 
-        <Stack spacing={2} sx={{ p: 3, border: '1px solid', borderColor: 'divider', position: { md: 'sticky' }, top: 24 }}>
+        <Stack spacing={2} sx={{ p: { xs: 2, sm: 3 }, border: '1px solid', borderColor: 'divider', position: { md: 'sticky' }, top: 24 }}>
           <Typography variant="h6" sx={{ fontWeight: 700 }}>Ваш заказ</Typography>
           <Stack direction="row" color="text.secondary" sx={{ justifyContent: 'space-between' }}><Typography>Товары</Typography><Typography>{formatPrice(total)}</Typography></Stack>
           <Divider />

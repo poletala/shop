@@ -16,7 +16,7 @@ export const ProductCard = ({ product, isFavorite, onToggleFavorite }: ProductCa
     <Box
       sx={{
         position: 'relative',
-        aspectRatio: '4 / 3',
+        aspectRatio: { xs: '5 / 4', sm: '4 / 3' },
         overflow: 'hidden',
         textDecoration: 'none', color: 'inherit'
       }}
@@ -33,7 +33,7 @@ export const ProductCard = ({ product, isFavorite, onToggleFavorite }: ProductCa
           position: 'absolute',
           top: 0,
           right: 0,
-          width: '80%',
+          width: { xs: '72%', sm: '80%' },
           height: '100%',
           objectFit: 'cover',
           display: 'block',
@@ -91,8 +91,11 @@ export const ProductCard = ({ product, isFavorite, onToggleFavorite }: ProductCa
           top: 8,
           right: 8,
           zIndex: 2,
-          color: isFavorite ? '#7FCE00' : '#fff',
-          backdropFilter: 'blur(4px)',
+          width: 44,
+          height: 44,
+          color: isFavorite ? '#7FCE00' : '#1a1a1a',
+          backgroundColor: 'rgba(255,255,255,0.78)',
+          backdropFilter: 'blur(6px)',
           transition: 'color 0.2s ease, background-color 0.2s ease',
           '&:hover': {
             backgroundColor: '#fff',
@@ -110,7 +113,7 @@ export const ProductCard = ({ product, isFavorite, onToggleFavorite }: ProductCa
           left: 0,
           top: '50%',
           transform: 'translateY(-50%)',
-          width: '70%',
+          width: { xs: '66%', sm: '70%' },
           pl: { xs: 2, md: 3 },
           pr: 1,
           zIndex: 1,
@@ -130,10 +133,11 @@ export const ProductCard = ({ product, isFavorite, onToggleFavorite }: ProductCa
 
         <Typography
           sx={{
-            fontSize: { xs: '1.1rem', md: '1.4rem' },
+            fontSize: { xs: '1rem', md: '1.4rem' },
             fontWeight: 700,
             color: 'text.primary',
             lineHeight: 1.1,
+            overflowWrap: 'anywhere',
           }}
         >
           {product.brand}

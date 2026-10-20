@@ -29,7 +29,7 @@ export const Saved = () => {
   }
 
   return (
-    <Box sx={{ p: { xs: 2, md: 4 } }}>
+    <Box sx={{ p: { xs: 1.5, sm: 2, md: 4 } }}>
       <Typography variant="h4" sx={{ mb: 3, fontWeight: 700 }}>
         избранное
       </Typography>

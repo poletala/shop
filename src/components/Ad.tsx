@@ -53,7 +53,8 @@ export const Ad = () => {
       <Box
       sx={{
         position: 'relative',
-        aspectRatio: { xs: '16 / 7', md: '21 / 6' },
+        height: { xs: 330, sm: 360, md: 'auto' },
+        aspectRatio: { md: '21 / 6' },
         overflow: 'hidden',
       }}
     >
@@ -84,12 +85,13 @@ export const Ad = () => {
           zIndex: 1,
           height: '100%',
           justifyContent: 'center',
-          px: { xs: 3, md: 8 },
+          px: { xs: 2, sm: 4, md: 8 },
+          pb: { xs: 5, md: 0 },
           maxWidth: 700,
         }}
         spacing={2}
       >
-        <Typography variant="h3" sx={{ color: '#fff', fontWeight: 700 }}>
+        <Typography variant="h3" sx={{ color: '#fff', fontWeight: 700, lineHeight: 1.05, maxWidth: { xs: 270, sm: 520 } }}>
           {slides[current].title}
         </Typography>
         <Typography sx={{ color: '#fff' }}>
@@ -108,9 +110,10 @@ export const Ad = () => {
             borderRadius: 0,
             textTransform: 'uppercase',
             fontWeight: 400,
-            px: 6,
-            py: 1.5,
-            minWidth: 260,
+            px: { xs: 2.5, sm: 6 },
+            py: { xs: 1.1, sm: 1.5 },
+            minWidth: { xs: 0, sm: 260 },
+            maxWidth: '100%',
             position: 'relative',
             overflow: 'hidden',
             zIndex: 1,
@@ -148,15 +151,21 @@ export const Ad = () => {
         }}
       >
         {slides.map((_, index) => (
-          <Box
+            <Box
+            role='button'
+            tabIndex={0}
+            aria-label={`Показать слайд ${index + 1}`}
             key={index}
             onClick={() => setCurrent(index)}
+            onKeyDown={(event) => {
+              if (event.key === 'Enter' || event.key === ' ') setCurrent(index)
+            }}
             sx={{
-              width: 10,
-              height: 10,
+              width: 32,
+              height: 32,
               borderRadius: '50%',
               cursor: 'pointer',
-              backgroundColor: index === current ? '#7FCE00' : 'rgba(255,255,255,0.6)',
+              background: `radial-gradient(circle, ${index === current ? '#7FCE00' : 'rgba(255,255,255,0.7)'} 0 5px, transparent 6px)`,
               transition: 'background-color 0.3s ease, transform 0.3s ease',
               '&:hover': {
                 transform: 'scale(1.2)',

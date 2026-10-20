@@ -65,7 +65,10 @@ export const Account = () => {
           sx: {
             width: { xs: '100%', md: '33.333333%' },
             boxSizing: 'border-box',
-            p: { xs: 2.5, md: 3, lg: 4 },
+            maxHeight: '100dvh',
+            overflowY: 'auto',
+            p: { xs: 2, md: 3, lg: 4 },
+            pb: { xs: 'max(16px, env(safe-area-inset-bottom))', md: 3, lg: 4 },
           },
         },
         transition: {
@@ -76,7 +79,7 @@ export const Account = () => {
     >
       <Stack direction="row" sx={{ alignItems: 'center', justifyContent: 'space-between', mb: 4 }}>
         <Typography id="account-title" variant="h5" sx={{ fontWeight: 700 }}>личный кабинет</Typography>
-        <IconButton aria-label="Закрыть" onClick={close} disableRipple sx={{ '&:hover': { backgroundColor: 'transparent', color: 'primary.main' } }}><Close /></IconButton>
+        <IconButton aria-label="Закрыть" onClick={close} disableRipple sx={{ width: 44, height: 44, flexShrink: 0, '&:hover': { backgroundColor: 'transparent', color: 'primary.main' } }}><Close /></IconButton>
       </Stack>
 
       {user ? (
@@ -129,7 +132,7 @@ export const Account = () => {
             value={name}
             onChange={(event) => setName(event.target.value)}
             slotProps={{ htmlInput: { maxLength: 80 } }}
-            sx={{ '& .MuiOutlinedInput-root': { borderRadius: 0 } }}
+            sx={{ '& .MuiOutlinedInput-root': { borderRadius: 0 }, '& input': { fontSize: '1rem' } }}
           />
           <TextField
             label="Электронная почта"
@@ -141,7 +144,7 @@ export const Account = () => {
             value={email}
             onChange={(event) => setEmail(event.target.value)}
             slotProps={{ htmlInput: { maxLength: 254 } }}
-            sx={{ '& .MuiOutlinedInput-root': { borderRadius: 0 } }}
+            sx={{ '& .MuiOutlinedInput-root': { borderRadius: 0 }, '& input': { fontSize: '1rem' } }}
           />
           <ActionButton type="submit" fullWidth sx={{ minWidth: 0 }}>Войти</ActionButton>
         </Stack>

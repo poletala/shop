@@ -6,11 +6,10 @@ import { useFavorites } from "../hooks/useFavorites"
 export const Promotions60 = () => {
   const { favorites, toggle } = useFavorites()
   const productsPromo = products.filter(p => p.sale && p.sale > 0)
-  console.log(products, productsPromo)
 
    return (
-    <Box sx={{ p: { xs: 2, md: 4 } }}>
-      <Typography variant="h4" sx={{ mb: 3, fontWeight: 700 }}>
+    <Box sx={{ p: { xs: 1.5, sm: 2, md: 4 } }}>
+      <Typography variant="h4" sx={{ mb: 3, fontWeight: 700, px: { xs: 0.5, md: 0 } }}>
         скидки
       </Typography>
 

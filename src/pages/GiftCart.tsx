@@ -15,7 +15,7 @@ export const GiftCart = () => {
   const isInCart = items.some((item) => item.id === `gift-card-${selected}`)
 
   return (
-    <Box sx={{ maxWidth: 1320, mx: 'auto', px: { xs: 2, md: 6 }, py: { xs: 3, md: 7 } }}>
+    <Box sx={{ maxWidth: 1320, mx: 'auto', px: { xs: 1.5, sm: 2, md: 6 }, py: { xs: 3, md: 7 } }}>
       <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', md: '1fr 0.9fr' }, gap: { xs: 4, md: 8 }, alignItems: 'center' }}>
         <Box sx={{ position: 'relative', overflow: 'hidden', aspectRatio: { xs: '4 / 3', md: '5 / 4' } }}>
           <Box
@@ -27,7 +27,7 @@ export const GiftCart = () => {
           <Chip
             icon={<CardGiftcardOutlined />}
             label="ПОДАРОЧНАЯ КАРТА"
-            sx={{ position: 'absolute', top: 20, left: 20, borderRadius: 0, bgcolor: '#fff', fontWeight: 500, letterSpacing: '0.08em' }}
+            sx={{ position: 'absolute', top: { xs: 12, sm: 20 }, left: { xs: 12, sm: 20 }, maxWidth: 'calc(100% - 24px)', borderRadius: 0, bgcolor: '#fff', fontWeight: 500, letterSpacing: { xs: '0.04em', sm: '0.08em' }, fontSize: { xs: '0.7rem', sm: '0.8125rem' } }}
           />
         </Box>
 
@@ -50,7 +50,7 @@ export const GiftCart = () => {
                   disableRipple
                   variant={selected === amount ? 'contained' : 'outlined'}
                   color="primary"
-                  sx={{ minWidth: 92, borderRadius: 0, fontWeight: 500, borderColor: selected === amount ? 'primary.main' : 'divider' }}
+                  sx={{ flex: { xs: '1 1 calc(50% - 4px)', sm: '0 0 auto' }, minWidth: 92, minHeight: 44, borderRadius: 0, fontWeight: 500, borderColor: selected === amount ? 'primary.main' : 'divider' }}
                 >
                   {amount.toLocaleString('ru-RU')} ₽
                 </Button>
@@ -60,7 +60,7 @@ export const GiftCart = () => {
 
           <ActionButton
             onClick={() => isInCart ? navigate('/cart') : addGiftCard(selected)}
-            sx={{ alignSelf: 'flex-start', minWidth: { xs: '100%', sm: 280 } }}
+            sx={{ alignSelf: 'flex-start', width: { xs: '100%', sm: 'auto' }, minWidth: { xs: 0, sm: 280 } }}
           >
             {isInCart ? 'В корзине' : `Купить за ${selected.toLocaleString('ru-RU')} ₽`}
           </ActionButton>

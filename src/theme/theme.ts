@@ -22,6 +22,12 @@ export const theme = createTheme({
   },
   typography: {
     fontFamily: 'Roboto, sans-serif',
+    h2: {
+      fontSize: 'clamp(2rem, 7vw, 3.75rem)',
+    },
+    h3: {
+      fontSize: 'clamp(1.75rem, 6vw, 3rem)',
+    },
   },
   components: {
     MuiAppBar: {

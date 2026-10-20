@@ -28,7 +28,7 @@ export const FavoritesAuthPrompt = ({ children }: { children: ReactNode }) => {
           aria-label='Закрыть'
           onClick={close}
           size='small'
-          sx={{ position: 'absolute', right: 4, top: 4, '&:hover': { color: 'primary.main' } }}
+          sx={{ position: 'absolute', right: 0, top: 0, width: 44, height: 44, '&:hover': { color: 'primary.main' } }}
         >
           <Close fontSize='small' />
         </IconButton>

@@ -17,8 +17,8 @@ export const ProductCards = () => {
       sx={{
         display: 'grid',
         gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr', md: 'repeat(3, 1fr)' },
-        gap: 2,
-        p: { xs: 2, md: 4 },
+        gap: { xs: 1.5, sm: 2 },
+        p: { xs: 1.5, sm: 2, md: 4 },
       }}
     >
       {filtered.map((product) => (
