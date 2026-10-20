@@ -46,7 +46,7 @@ export const products: Product[] = [
   {
     id: 'p4',
     image: '/products/Dolce&Gabbana_VELVET_MUGHETTO(1).webp',
-    gallery: ['/pics/p1.webp', '/pics/p1-2.webp', '/pics/p1-3.webp'],
+    gallery: ['/products/Dolce&Gabbana_VELVET_MUGHETTO(1).webp', '/products/Dolce&Gabbana_VELVET_MUGHETTO(2).webp', '/products/Dolce&Gabbana_VELVET_MUGHETTO.webp'],
     category: 'духи',
     brand: 'Dolce & Gabbana',
     price: 34509,

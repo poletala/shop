@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router";
+import { createHashRouter, Navigate } from "react-router";
 import { Layout } from "../components/Layout";
 // import { Home } from "../pages/Home";
 import { Catalog } from "../pages/Catalog";
@@ -12,12 +12,12 @@ import { Brands } from "../pages/Brands";
 import { Ours } from "../pages/Ours";
 import { ProductPage } from "../pages/ProductPage";
 
-export const router = createBrowserRouter([
+export const router = createHashRouter([
   {
     path: '/',
     element: <Layout />,
     children: [
-      // { index: true, element: <Home /> },
+      { index: true, element: <Navigate to='/catalog' replace /> },
       { path: 'catalog', element: <Catalog /> },
       { path: 'promotions', element: <Promotions /> },
       { path: 'account', element: <Account /> },
@@ -28,7 +28,7 @@ export const router = createBrowserRouter([
       { path: 'brands', element: <Brands /> },
       { path: 'ours', element: <Ours /> },
       { path: 'product/:id', element: <ProductPage /> },
-    //   { path: '*', element: <NotFound /> },
+      { path: '*', element: <Navigate to='/catalog' replace /> },
     ],
   },
 ])

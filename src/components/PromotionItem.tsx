@@ -1,6 +1,7 @@
 import { ArrowForward } from '@mui/icons-material'
 import { Box, IconButton, Stack, Typography } from "@mui/material"
 import { NavLink } from 'react-router'
+import { publicAsset } from '../utils/publicAsset'
 
 type PromotionProps = {
   image: string,
@@ -21,7 +22,7 @@ export const PromotionItem = ({ header, image }: PromotionProps) => {
     >
       <Box
         component="img"
-        src={image}
+        src={publicAsset(image)}
         alt={header}
       />
       <Box

@@ -4,6 +4,7 @@ import { NavLink } from 'react-router'
 import { ActionButton } from '../components/ActionButton'
 import { products, type Product } from '../data/products'
 import { useCart } from '../hooks/useCart'
+import { publicAsset } from '../utils/publicAsset'
 
 const formatPrice = (price: number) => `${price.toLocaleString('ru-RU')} ₽`
 
@@ -40,7 +41,7 @@ export const Cart = () => {
           {cartProducts.map(({ product, qty }) => (
             <Stack key={product.id} direction="row" spacing={{ xs: 1.5, sm: 3 }} sx={{ py: 2.5 }}>
               <Box component={NavLink} to={`/product/${product.id}`} sx={{ width: { xs: 94, sm: 140 }, flexShrink: 0, aspectRatio: '1', display: 'block' }}>
-                <Box component="img" src={product.image} alt={product.brand} sx={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+                <Box component="img" src={publicAsset(product.image)} alt={product.brand} sx={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
               </Box>
 
               <Stack sx={{ flex: 1, minWidth: 0 }}>

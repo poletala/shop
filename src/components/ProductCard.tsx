@@ -2,6 +2,7 @@ import { Box, IconButton, Stack, Typography } from '@mui/material'
 import { Favorite, FavoriteBorder } from '@mui/icons-material'
 import type { Product } from '../data/products'
 import { NavLink } from 'react-router'
+import { publicAsset } from '../utils/publicAsset'
 
 type ProductCardProps = {
   product: Product
@@ -25,7 +26,7 @@ export const ProductCard = ({ product, isFavorite, onToggleFavorite }: ProductCa
 
       <Box
         component="img"
-        src={product.image}
+        src={publicAsset(product.image)}
         alt={product.brand}
         loading="lazy"
         sx={{

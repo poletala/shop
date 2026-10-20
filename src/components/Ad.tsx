@@ -2,6 +2,7 @@ import { ArrowForward } from "@mui/icons-material"
 import { Box, Button, Stack, Typography } from "@mui/material"
 import { useEffect, useState } from "react"
 import { NavLink } from "react-router"
+import { publicAsset } from '../utils/publicAsset'
 
   type Slide = {
   image: string
@@ -62,7 +63,7 @@ export const Ad = () => {
           sx={{
             position: 'absolute',
             inset: 0,
-            backgroundImage: `url(${slide.image})`,
+            backgroundImage: `url("${publicAsset(slide.image)}")`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             opacity: index === current ? 1 : 0,

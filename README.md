@@ -32,6 +32,37 @@
 | localStorage | Сохранение данных между посещениями |
 
 
+## Запуск и GitHub Pages
+
+Для локального запуска нужны Node.js 22.12+ и npm:
+
+```bash
+npm ci
+npm run dev
+```
+
+Откройте адрес из терминала с префиксом `/shop/`, например `http://localhost:5173/shop/`.
+Каталог откроется автоматически. Страницы используют hash-маршруты:
+`/shop/#/catalog`, `/shop/#/cart`, `/shop/#/account`.
+
+Адрес публикации после успешного деплоя: https://poletala.github.io/shop/
+
+В репозитории откройте **Settings → Pages → Build and deployment → Source** и выберите
+**GitHub Actions**. Workflow `.github/workflows/deploy.yml` запускается при push в `main`
+или вручную через **Actions → Deploy to GitHub Pages → Run workflow**.
+Он устанавливает зависимости, проверяет ESLint, собирает приложение и публикует `dist/`.
+
+Для проверки production-сборки локально:
+
+```bash
+npm run build
+npm run preview
+```
+
+Базовый путь `/shop/` задан в `vite.config.ts`, изображения получают его через
+`publicAsset()`. Hash-маршрутизация позволяет открывать прямые ссылки и обновлять
+страницу без серверных правил перенаправления.
+
 ## Структура проекта
 
 ```text

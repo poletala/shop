@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router'
 import { ActionButton } from '../components/ActionButton'
 import { useCart } from '../hooks/useCart'
+import { publicAsset } from '../utils/publicAsset'
 
 const denominations = [1000, 3000, 5000, 10000]
 
@@ -19,7 +20,7 @@ export const GiftCart = () => {
         <Box sx={{ position: 'relative', overflow: 'hidden', aspectRatio: { xs: '4 / 3', md: '5 / 4' } }}>
           <Box
             component="img"
-            src="/pics/gift-carts.webp"
+            src={publicAsset('/pics/gift-carts.webp')}
             alt="подарочная карта"
             sx={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
           />

@@ -6,6 +6,7 @@ import { useFavorites } from '../hooks/useFavorites'
 import { useCart } from '../hooks/useCart'
 import { ActionButton } from '../components/ActionButton'
 import { getProductById } from '../data/products'
+import { publicAsset } from '../utils/publicAsset'
 
 export const ProductPage = () => {
   const { id } = useParams<{ id: string }>()
@@ -43,7 +44,7 @@ export const ProductPage = () => {
           <Box
             key={img}
             component="img"
-            src={img}
+            src={publicAsset(img)}
             alt={`${product.brand} ${index + 1}`}
             onClick={() => setActiveImage(index)}
             sx={{
@@ -63,7 +64,7 @@ export const ProductPage = () => {
       {/* Центр — большая картинка */}
       <Box
         component="img"
-        src={product.gallery[activeImage]}
+        src={publicAsset(product.gallery[activeImage])}
         alt={product.brand}
         sx={{
           order: { xs: 1, md: 2 },
